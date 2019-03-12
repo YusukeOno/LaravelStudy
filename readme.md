@@ -16,3 +16,16 @@ $ git commit -m "ここにコミットログを書く。"
 $ git remote add origin git@github.com:[ここにユーザー名/リポジトリ名].git
 $ git push -u origin master
 ```
+
+### ローカルで動作確認する
+
+```
+$ php artisan serve
+```
+
+## Docker
+
+Dockerイメージをバックグラウンドで立ち上げる。
+```
+docker-compose up -d
+```
