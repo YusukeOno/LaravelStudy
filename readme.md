@@ -25,8 +25,8 @@ $ php artisan serve
 
 ## Docker
 
-Dockerコンテナをバックグラウンドで立ち上げる。
+Dockerコンテナを立ち上げる。(-dオプションでバックグラウンドで実行。--buildオプションで起動前にイメージをビルド。
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```
 
