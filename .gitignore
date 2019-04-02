@@ -12,3 +12,4 @@ yarn-error.log
 .env
 .env.*.php
 .env.php
+/docker/mysql
