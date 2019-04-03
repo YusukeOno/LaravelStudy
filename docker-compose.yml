@@ -1,25 +1,25 @@
 version: "3"
 services: 
   web:
-    image: nginx
-    container_name: "laravel-nginx"
+    build: 
+      context: ./docker/nginx
+    container_name: "laravel-study_nginx"
     depends_on: 
       - php
     ports: 
       - "8080:80"
-    volumes: 
-      - ./:/src
   php:
     build: 
       context: ./docker/php
+    container_name: "laravel-study_php"
     environment: 
       DB_HOST: mysql
     volumes: 
       - ./:/src
   mysql:
-    image: mysql
-    volumes: 
-      - ./docker/mysql:/var/lib/mysql
+    build: 
+      context: ./docker/mysql
+    container_name: "laravel-study_mysql"
     environment: 
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=sample
