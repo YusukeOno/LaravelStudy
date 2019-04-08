@@ -21,12 +21,12 @@ services:
       context: ./docker/mysql
     container_name: "laravel-study_mysql"
     environment: 
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=sample
-      - MYSQL_USER=sample
-      - MYSQL_PASSWORD=sample
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
       - TZ=Asia/Tokyo
     volumes: 
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports: 
-      - 3306:3306
+      - 3306:${DB_PORT}
