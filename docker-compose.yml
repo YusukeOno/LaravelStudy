@@ -1,36 +1,35 @@
 version: "3"
-services: 
+services:
   web:
-    build: 
+    build:
       context: ./docker/nginx
     container_name: "laravel-study_nginx"
-    depends_on: 
+    depends_on:
       - php
     links:
       - php:phpfpm
-    ports: 
-      - "8080:80"
+    ports:
       - "8443:443"
   php:
-    build: 
+    build:
       context: ./docker/php
     container_name: "laravel-study_php"
-    environment: 
+    environment:
       DB_HOST: mysql
-    volumes: 
+    volumes:
       - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
       - ./:/var/www
   mysql:
-    build: 
+    build:
       context: ./docker/mysql
     container_name: "laravel-study_mysql"
-    environment: 
+    environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=${DB_DATABASE}
       - MYSQL_USER=${DB_USERNAME}
       - MYSQL_PASSWORD=${DB_PASSWORD}
       - TZ=Asia/Tokyo
-    volumes: 
+    volumes:
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    ports: 
+    ports:
       - 3306:${DB_PORT}
