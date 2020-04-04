@@ -32,6 +32,5 @@ docker-compose up -d --build
 
 ### Web-APP-DB構成
 ```
-(8080:80) nginx -> PHP -> MySQL
 (8443:443) nginx -> PHP -> MySQL
 ```
